@@ -346,13 +346,16 @@ rules:
         key: GEM_SPEC_CACHE
         value: ${XDG_CACHE_HOME}/gem
 
-  - name: gitconfig
+  - name: git
     dotfile:
       name: .gitconfig
     actions:
       - type: migrate
         source: ${HOME}/.gitconfig
         dest: ${XDG_CONFIG_HOME}/git/config
+      - type: migrate
+        source: ${HOME}/.git-credentials
+        dest: ${XDG_CONFIG_HOME}/git/credentials
 
   - name: gnupg
     dotfile:
